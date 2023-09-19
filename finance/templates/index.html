@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="row" >Cash</th>
+                <th scope="row" >Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ cash }}</td>
+                <td>$10,000.00</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped">
+        <thead >
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(len) %}
+                {% if db[i]["total_shares"] > 0 %}
+
+                    <tr>
+                        <td>{{ db[i]["stock_symbol"] }}</td>
+                        <td>{{ db[i]["total_shares"] }}</td>
+                        <td>{{ current_price[i] }}</td>
+                        <td>{{ total_value[i]}}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

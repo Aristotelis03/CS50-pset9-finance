@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <!-- <table class="table table-striped">
+        <thead >
+            <tr>
+                <th scope="col">Empty</th>>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>empty</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Stock" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}

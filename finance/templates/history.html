@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead >
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">User</th>
+                <th scope="col">Datetime</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in database %}
+                <tr>
+                    <td>{{ i.get("action") }}</td>
+                    <td>{{ i.get("stock_symbol") }}</td>
+                    <td>{{ i.get("amount_shares") }}</td>
+                    <td>{{ i.get("price") | usd }}</td>
+                    <td>{{ i.get("username") }}</td>
+                    <td>{{ i.get("datetime") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
